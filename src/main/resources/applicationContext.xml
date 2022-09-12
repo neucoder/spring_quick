@@ -4,11 +4,14 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 
-    <bean id="bookDao" class="com.ys.dao.impl.BookDaoImpl"
-          init-method="init"
-          destroy-method="destroy"/>
+    <bean id="bookDao" class="com.ys.dao.impl.BookDaoImpl">
+        <property name="databaseName" value="mysql"/>
+        <property name="connectionNum" value="10"/>
+    </bean>
+    <bean id="userDao" class="com.ys.dao.impl.UserDaoImpl"/>
     <bean id="bookService" class="com.ys.service.impl.BookServiceImpl">
         <property name="bookDao" ref="bookDao"/>
+        <property name="userDao" ref="userDao"/>
     </bean>
 
 </beans>

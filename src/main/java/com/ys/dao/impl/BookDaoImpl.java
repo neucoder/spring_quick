@@ -3,14 +3,19 @@ package com.ys.dao.impl;
 import com.ys.dao.BookDao;
 
 public class BookDaoImpl implements BookDao {
-    public void init(){
-        System.out.println("init method run...");
+
+    private String databaseName;
+    private int connectionNum;
+
+    public void setConnectionNum(int connectionNum) {
+        this.connectionNum = connectionNum;
     }
-    public void destroy(){
-        System.out.println("destroy method run...");
+
+    public void setDatabaseName(String databaseName) {
+        this.databaseName = databaseName;
     }
-    @Override
-    public void save(){
-        System.out.println("book dao save-----");
+
+    public void save() {
+        System.out.println("book dao save ..."+databaseName+","+connectionNum);
     }
 }
