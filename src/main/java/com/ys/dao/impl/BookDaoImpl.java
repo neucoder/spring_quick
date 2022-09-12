@@ -1,7 +1,9 @@
 package com.ys.dao.impl;
 
 import com.ys.dao.BookDao;
+import org.springframework.stereotype.Component;
 
+@Component("bookDao")
 public class BookDaoImpl implements BookDao {
     @Override
     public void save(){
