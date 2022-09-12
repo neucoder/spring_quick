@@ -14,14 +14,8 @@ public class App {
     public static void main(String[] args) {
         ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
 
-        BookDao bookDao = (BookDao) ctx.getBean("bookDao");
-        bookDao.save();
-        BookService bean = ctx.getBean(BookService.class);
-        Object bookServiceImpl = ctx.getBean("bookServiceImpl");
-        System.out.println(bean);
-        System.out.println(bookServiceImpl);
-
-        bean.save();
+        DataSource dataSource = ctx.getBean(DataSource.class);
+        System.out.println(dataSource);
         System.out.println("test");
     }
 }
