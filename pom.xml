@@ -40,6 +40,11 @@
             <version>3.5.6</version>
         </dependency>
         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>4.3.0.RELEASE</version>
+        </dependency>
+        <dependency>
             <!--
                 Spring与Mybatis整合的jar包
                 这个jar包mybatis在前面，是Mybatis提供的
