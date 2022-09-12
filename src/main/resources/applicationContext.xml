@@ -4,17 +4,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 
-<!--    1.构造方法实例化-->
-<!--    <bean id="bookDao" class="com.ys.dao.impl.BookDaoImpl" />-->
-<!--    <bean id="bookService" class="com.ys.service.impl.BookServiceImpl" >-->
-<!--        <property name="bookDao" ref="bookDao"> </property>-->
-<!--    </bean>-->
-<!--    2.工厂实例化-->
-<!--    <bean id="orderDao" class="com.ys.factory.OrderDaoFactory" factory-method="getOrderDao" />-->
+    <bean id="bookDao" class="com.ys.dao.impl.BookDaoImpl"
+          init-method="init"
+          destroy-method="destroy"/>
+    <bean id="bookService" class="com.ys.service.impl.BookServiceImpl">
+        <property name="bookDao" ref="bookDao"/>
+    </bean>
 
-<!--    方式三 实例工厂实例化-->
-<!--    <bean id="userDaoFactory" class="com.ys.factory.UserDaoFactory"/>-->
-<!--    <bean id="userDao" factory-method="getUserDao" factory-bean="userDaoFactory" />-->
-<!--    方式4 factorybean 工厂实例化-->
-    <bean id="userDao" class="com.ys.factory.UserDaoFactoryBean" />
 </beans>
