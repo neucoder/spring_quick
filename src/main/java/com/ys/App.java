@@ -1,5 +1,6 @@
 package com.ys;
 
+import com.ys.dao.BookDao;
 import com.ys.service.BookService;
 import com.ys.service.impl.BookServiceImpl;
 import javafx.application.Application;
@@ -11,9 +12,8 @@ import javax.sql.DataSource;
 public class App {
     public static void main(String[] args) {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
-        DataSource dataSource = (DataSource) ctx.getBean("dataSource");
-        System.out.println(dataSource);
-
+        BookDao bookDao = (BookDao)ctx.getBean("bookDao");
+        bookDao.save();
         System.out.println("test");
     }
 }
