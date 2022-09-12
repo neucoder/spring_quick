@@ -1,7 +1,7 @@
 package com.ys.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.ys.dao.BookDao;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,8 +20,8 @@ public class JdbcConfig {
     @Value("${jdbc.password}")
     private String password;
     @Bean
-    public DataSource dataSource(BookDao bookDao){
-        System.out.println(bookDao);
+    public DataSource dataSource(){
+
         DruidDataSource ds = new DruidDataSource();
         ds.setDriverClassName(driver);
         ds.setUrl(url);

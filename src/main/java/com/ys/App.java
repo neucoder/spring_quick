@@ -3,6 +3,7 @@ package com.ys;
 import com.ys.config.SpringConfig;
 import com.ys.dao.AccountDao;
 import com.ys.model.Account;
+import com.ys.service.AccountService;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -18,21 +19,11 @@ import java.sql.SQLException;
 
 public class App {
     public static void main(String[] args) throws SQLException, IOException {
-        // 1. 创建SqlSessionFactoryBuilder对象
-        SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
-        // 2. 加载SqlMapConfig.xml配置文件
-        InputStream inputStream = Resources.getResourceAsStream("SqlMapConfig.xml");
-        // 3. 创建SqlSessionFactory对象
-        SqlSessionFactory sqlSessionFactory = sqlSessionFactoryBuilder.build(inputStream);
-        // 4. 获取SqlSession
-        SqlSession sqlSession = sqlSessionFactory.openSession();
-        // 5. 执行SqlSession对象执行查询，获取结果User
-        AccountDao accountDao = sqlSession.getMapper(AccountDao.class);
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
 
-        Account ac = accountDao.findById(1);
+        AccountService accountService = ctx.getBean(AccountService.class);
+
+        Account ac = accountService.findById(1);
         System.out.println(ac);
-
-        // 6. 释放资源
-        sqlSession.close();
     }
 }
