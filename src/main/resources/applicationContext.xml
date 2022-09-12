@@ -5,13 +5,13 @@
 
 
     <bean id="bookDao" class="com.ys.dao.impl.BookDaoImpl">
-        <property name="databaseName" value="mysql"/>
-        <property name="connectionNum" value="10"/>
+        <constructor-arg name="connectionNum" value="105"/>
+        <constructor-arg name="databaseName" value="mysql" />
     </bean>
     <bean id="userDao" class="com.ys.dao.impl.UserDaoImpl"/>
     <bean id="bookService" class="com.ys.service.impl.BookServiceImpl">
-        <property name="bookDao" ref="bookDao"/>
-        <property name="userDao" ref="userDao"/>
+        <constructor-arg name="bookDao" ref="bookDao" />
+        <constructor-arg name="userDao" ref="userDao" />
     </bean>
 
 </beans>

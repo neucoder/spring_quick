@@ -11,10 +11,11 @@ public class BookServiceImpl implements BookService{
     private BookDao bookDao;
     private UserDao userDao;
 
-
-    public void setUserDao(UserDao userDao) {
+    public BookServiceImpl(BookDao bookDao, UserDao userDao){
+        this.bookDao = bookDao;
         this.userDao = userDao;
     }
+
 
     @Override
     public void save() {
@@ -24,8 +25,4 @@ public class BookServiceImpl implements BookService{
         userDao.save();
     }
 
-    public void setBookDao(BookDao bookDao) {
-
-        this.bookDao = bookDao;
-    }
 }
