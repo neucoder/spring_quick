@@ -12,13 +12,8 @@ public class App {
     public static void main(String[] args) {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 
-        BookDao bookDao1 = (BookDao) ctx.getBean("bookDao");
-        BookDao bookDao2 = (BookDao) ctx.getBean("bookDao");
-        System.out.println(bookDao1);
-        System.out.println(bookDao2);
-        BookService bookService1 = (BookService) ctx.getBean("bookService");
-        BookService bookService2 = (BookService) ctx.getBean("bookService");
-        System.out.println(bookService1);
-        System.out.println(bookService2);
+        BookDao bookDao = (BookDao) ctx.getBean("bookDao");
+        bookDao.save();
+
     }
 }
