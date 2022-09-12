@@ -12,7 +12,8 @@ import javax.sql.DataSource;
 public class App {
     public static void main(String[] args) {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
-        BookDao bookDao = (BookDao)ctx.getBean("bookDao");
+
+        BookDao bookDao = (BookDao) ctx.getBean("bookDao");
         bookDao.save();
         System.out.println("test");
     }
