@@ -1,4 +1,5 @@
 import com.ys.config.SpringConfig;
+import com.ys.dao.impl.BookDaoImpl;
 import com.ys.service.AccountService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,13 +16,27 @@ public class AccountServiceTest {
     //支持自动装配注入bean
     @Autowired
     private AccountService accountService;
+
+    @Autowired
+    private BookDaoImpl bookDaoImpl;
+
     @Test
     public void testFindById(){
         System.out.println(accountService.findById(1));
-
     }
     @Test
     public void testFindAll(){
         System.out.println(accountService.findAll());
     }
+
+    @Test
+    public void testBookDao(){
+        bookDaoImpl.save();
+    }
+
+    @Test
+    public void testFunc(){
+        System.out.println("hello, world");
+    }
+
 }
