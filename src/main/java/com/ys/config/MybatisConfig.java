@@ -11,7 +11,7 @@ public class MybatisConfig {
     @Bean
     public SqlSessionFactoryBean sqlSessionFactory(DataSource dataSource){
         SqlSessionFactoryBean ssfb = new SqlSessionFactoryBean();
-        ssfb.setTypeAliasesPackage("com.itheima.domain");
+        ssfb.setTypeAliasesPackage("com.ys");
         ssfb.setDataSource(dataSource);
         return ssfb;
     }
